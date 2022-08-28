@@ -1,0 +1,43 @@
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>qemu-yaoxin</name>
+  <memory unit="G">2</memory>
+  <vcpu>2</vcpu>
+  <cpu mode='host-model'>
+    <numa>
+      <cell id='0' cpus='0-1' memory='2' unit='G'/>
+    </numa>
+  </cpu>
+  <os>
+    <type arch='x86_64' machine='pc'>hvm</type>
+    <cmdline> ip=dhcp</cmdline>
+  </os>
+  <memoryBacking>
+  </memoryBacking>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2' cache='unsafe'/>
+      <source file='/home/jing/vm-files/vm.qcow2'/>
+      <target dev='vda' bus='ide'/>
+    </disk>
+  <interface type='network'>
+     <source network='default'/>
+     <mac address='00:16:3e:1a:b3:4a'/>
+  </interface>
+    <console type='pty'>
+      <target type='serial'/>
+    </console>
+    <console type='pty'>
+      <target type='virtio'/>
+    </console>
+    <rng model='virtio'>
+      <backend model='random'/>
+    </rng>
+  </devices>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>destroy</on_reboot>
+  <on_crash>destroy</on_crash>
+  <features>
+    <acpi />
+  </features>
+</domain>
