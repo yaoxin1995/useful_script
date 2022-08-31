@@ -1,0 +1,39 @@
+<domain type='kvm'>
+<name>worker</name>
+<memory unit='G'>1</memory>
+<currentMemory unit='G'>1</currentMemory>
+<vcpu>1</vcpu>
+<os>
+<type arch='x86_64' machine='pc'>hvm</type>
+<boot dev='hd'/>     //即harddisk，从磁盘启
+</os>
+<cpu mode='host-passthrough'/>
+<features>
+<acpi/>
+<apic/>
+<pae/>
+</features>
+<clock offset='localtime'/>
+<on_poweroff>destroy</on_poweroff>
+<on_reboot>restart</on_reboot>
+<on_crash>destroy</on_crash>
+<devices>
+<emulator>/usr/bin/qemu-system-x86_64</emulator>
+<disk type='file' device='disk'>
+<driver name='qemu' type='qcow2'/>
+<source file='/home/yaoxin/project/useful_script/test/worker_img.qcow2'/> //目的镜像路径
+<target dev='hda' bus='ide'/>
+</disk>
+<disk type='file' device='cdrom'>
+<source file='/home/yaoxin/project/useful_script/test/ubuntu-22.04.1-live-server-amd64.iso'/> //光盘镜像路径
+<target dev='hdb' bus='ide'/>
+</disk>
+<interface type='bridge'>
+<source bridge='virbr0'/>
+<mac address="00:16:3e:5d:aa:a8"/>
+</interface>
+<input type='mouse' bus='ps2'/>
+<graphics type='vnc' port='-1' autoport='yes' keymap='en-us'/>
+
+</devices>
+</domain>
