@@ -21,11 +21,12 @@ Bug fix:
 2. Got error `plugin type="flannel" failed (add): open /run/flannel/subnet.env: no such file or directory`   when i deploy a pod.
    fixed it by manually adding the file /run/flannel/subnet.env to worker node and master node:
 ```
-
-
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.0.1/24
 FLANNEL_MTU=1450
 FLANNEL_IPMASQ=true
 ```
+
+3. The connection to the server x.x.x.:6443 was refused - did you specify the right host or port? Kubernetes
+[link](https://stackoverflow.com/questions/56737867/the-connection-to-the-server-x-x-x-6443-was-refused-did-you-specify-the-right)
 
