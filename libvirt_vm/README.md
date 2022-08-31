@@ -1,7 +1,15 @@
 
 How to config and set up kubeadm, please look at this [link](https://computingforgeeks.com/install-kubernetes-cluster-ubuntu-jammy/)
 
+Conmand for kubeadm deployment
 
+```
+// 10.244.0.0/16  is requred for network seting using  Flannel network plugin
+sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --cri-socket /run/containerd/containerd.sock --skip-phases=addon/kube-proxy
+
+
+kubeadm join 192.168.122.11:6443 --token b4fome.c0wh3ulgd191131a         --discovery-token-ca-cert-hash sha256:720fb08fe48823d955a4e694968810a40008439892994aed752f058486e57c2f 
+```
 
 
 
