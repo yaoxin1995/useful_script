@@ -29,5 +29,5 @@ FLANNEL_IPMASQ=true
 
 3. The connection to the server x.x.x.:6443 was refused - did you specify the right host or port? Kubernetes
 
-[link](https://stackoverflow.com/questions/56737867/the-connection-to-the-server-x-x-x-6443-was-refused-did-you-specify-the-right)
+   [link](https://stackoverflow.com/questions/56737867/the-connection-to-the-server-x-x-x-6443-was-refused-did-you-specify-the-right)
 
